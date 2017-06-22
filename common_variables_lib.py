@@ -1,1 +1,1 @@
-common_element_timeout = 30
+common_wait_for_element_timeout = 15
