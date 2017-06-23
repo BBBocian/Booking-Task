@@ -30,14 +30,16 @@ class Booking(unittest.TestCase):
         #login_to_main_page(driver, login_username, login_password)
 
         select_one_way_flight(driver)
-
+        print('should not')
+        status = check_if_component_is_displayed(driver,first_available_date_in_calendar_xpath)
+        print(status)
         select_departure_and_destination(driver,departure_aiport,destination_aiport)
         select_first_available_date_from_calendar(driver)
 
-        #lets_go_button_component = get_element_by_xpath(driver,lets_go_button_xpath)
-        #wait_until_element_is_clicable(driver,lets_go_button_xpath)
-        #lets_go_button_component.click()
-
+        lets_go_button_component = get_element_by_xpath(driver,lets_go_button_xpath)
+        wait_until_element_is_clicable(driver,lets_go_button_xpath)
+        lets_go_button_component.click()
+        time.sleep(10)
 
     def tearDown(self):
         #self.driver.close()
