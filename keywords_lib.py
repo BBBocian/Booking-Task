@@ -5,7 +5,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import ElementNotVisibleException
 import time
 
 # Finding elements
@@ -17,9 +17,11 @@ def get_element_by_id(driver, id ,timeout=common_wait_for_element_timeout):
 
 
 def get_element_by_xpath(driver, xpath ,timeout=common_wait_for_element_timeout):
-    element = WebDriverWait(driver, timeout).until(lambda driver: driver.find_element_by_xpath(xpath))
-    return element
-
+    try:
+        element = WebDriverWait(driver, timeout).until(lambda driver: driver.find_element_by_xpath(xpath))
+        return element
+    except TimeoutException:
+        raise ElementNotVisibleException("Component " + xpath + " could not be found during " + str(timeout) +" seconds!" )
 
 def get_element_by_name(driver, name ,timeout=common_wait_for_element_timeout):
     element = WebDriverWait(driver, timeout).until(lambda driver: driver.find_element_by_xpath(name))
@@ -40,11 +42,11 @@ def wait_until_element_is_clicable(driver,component_xpaht,timeout=common_wait_fo
     #    pass
 
 
-def check_if_component_is_displayed(driver,component_xpaht):
+def check_if_component_is_visible(driver,component_xpaht,timeout=common_check_if_element_visible_timeout):
     try:
-        status = driver.find_element_by_xpath(component_xpaht).is_displayed()
+        status = WebDriverWait(driver, timeout).until(lambda driver: driver.find_element_by_xpath(component_xpaht))
         return True
-    except NoSuchElementException as e:
+    except TimeoutException:
         return False
 
 
@@ -111,12 +113,56 @@ def accept_tickets(driver):
 
 
 def select_first_available_date_from_calendar(driver):
+    '''
+    Handling calendar view:
+    First available day where flight is possible can be in next(than visible) months, that is why first
+    checking if that available day (is visible) is execute.
+    If any of days is not available --> select right arrow - show next month - and check one more time.
+    To check how many month calendar has, simple comparison has been added.
+    1. On the begining only 2 months are available on webpage (in html also)
+    2. After clicking next month arrow - next month is adding to rest of months(in html)
+    3. In every loop execution -
+        a. check last month,
+        b. click next month arrow and check last month again,
+        c. if those months are the same - it means arrow right did not shown new month and calendar is out of scope
+    :param driver:
+    :return:
+    '''
     print('select_first_available_date_from_calendar')
 
-    #button_arrow_right_component = get_element_by_xpath(driver,button_arrow_right_xpath)
-    #wait_until_element_is_clicable(driver, button_arrow_right_xpath)
-    status = check_if_component_is_displayed(driver, first_available_date_in_calendar_xpath)
-    print(status)
-    date_component = get_element_by_xpath(driver, first_available_date_in_calendar_xpath)
-    date_component.click()
+    condition = True
+    while condition:
+        month_name = driver.find_elements_by_xpath("//*[@id='row-dates-pax']//li[@class='calendar-view']//h1")
+        last_month = month_name[-1].text
 
+        component_status = check_if_component_is_visible(driver, first_available_date_in_calendar_xpath)
+        if component_status:
+            date_component = get_element_by_xpath(driver, first_available_date_in_calendar_xpath)
+            time.sleep(1)
+            date_component.click()
+            condition = False
+            break
+
+        arrow_right_component = get_element_by_xpath(driver, arrow_right_button_xpath)
+        arrow_right_component.click()
+        time.sleep(1)
+
+        current_month_name = driver.find_elements_by_xpath("//*[@id='row-dates-pax']//li[@class='calendar-view']//h1")
+        current_last_month = current_month_name[-1].text
+        time.sleep(1)
+
+        if last_month == current_last_month:
+            condition = False
+
+    '''
+    for i in range(5):
+        component_status = check_if_component_is_visible(driver,first_available_date_in_calendar_xpath)
+        if component_status:
+            date_component = get_element_by_xpath(driver, first_available_date_in_calendar_xpath)
+            time.sleep(3)
+            date_component.click()
+            break
+        else:
+            arrow_right_component = get_element_by_xpath(driver,arrow_right_button_xpath)
+            arrow_right_component.click()
+    '''

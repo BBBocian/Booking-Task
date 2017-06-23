@@ -14,12 +14,13 @@ start_date_calendar_xpath = "//*[@class='start_date']"
 
 lets_go_button_xpath = "//*[@translate='common.buttons.lets_go']"
 
-first_available_date_in_calendar_xpath = "//*[@id='row-dates-pax']//core-datepicker//li[not(@class) and @ng-if='!range']"
+first_available_date_in_calendar_xpath = "//*[@id='row-dates-pax']//li[not(@class) and @ng-if='!range']"
 #"//li[@class!='unavailable' and @ng-if='!range']"
 
 from_price_button_xpath = "//*[@class='core-btn-primary']"
 
 arrow_right_button_xpath = "//button[@class='arrow right']"
+arrow_left_button_xpath = "//button[@class='arrow left']"
 
 standard_class_select_button_xpaht = "//*[@class='ranimate-flight-fares']//*[contains(@class,'standard')]"
 leisure_class_select_button_xpaht = "//*[@class='ranimate-flight-fares']//*[contains(@class,'leisure')]"
