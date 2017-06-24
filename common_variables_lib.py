@@ -1,2 +1,0 @@
-common_wait_for_element_timeout = 15
-common_check_if_element_visible_timeout = 5
