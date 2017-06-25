@@ -19,7 +19,7 @@ The purpose of TC is check if trying to book tickets with incorrect credit card 
      
 Use payment_declined_test.py to run project.      
      
-Pycharm project can be used as run python file from Separated_files folder. Go to Separated_files dir and execute python payment_declined_test.py
+Pycharm project can be used as run python file from Separated_files folder. Go to Separated_files dir and execute python payment_declined_test.py - this could be improvement by property files.
 
 If gecodriver or chrome dirver are missing, add Separated_files dir to your PATH.
 
