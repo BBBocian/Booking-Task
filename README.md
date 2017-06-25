@@ -1,5 +1,5 @@
 # Booking-Task
-Draft version created in selenium webdriver + python. Selenium + python has been choosen because this is the best start to improve TC in BDD way. Test in BDD has been created but not in the form I would like to present.
+Draft version created in selenium webdriver + python. Selenium + python has been choosen because this is the best start to improve TC in BDD way. Test in BDD has been created but not in the form I would like to present. It can be delivered in days - if needed.
 
 Test information: 
 
