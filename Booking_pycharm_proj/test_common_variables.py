@@ -1,3 +1,5 @@
+web_page_link = "https://www.ryanair.com/ie/en/"
+
 departure_aiport = 'Wroclaw'
 destination_airport = 'Alicante'
 

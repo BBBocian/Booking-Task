@@ -23,7 +23,7 @@ def check_declined_payment():
     '''
 
     driver = webdriver.Chrome()
-    driver.get("https://www.ryanair.com/ie/en/")
+    driver.get(web_page_link)
     driver.maximize_window()
 
     check_if_cookie_popup_exist(driver)
