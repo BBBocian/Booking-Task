@@ -111,12 +111,13 @@ def click_on_component(driver, component_xpath):
             component.click()
             break
         except Exception as e:
-            if error_message in str(e):
+            error = str(e)
+            if error_message in error:
                 time.sleep(2)
             else:
-                raise Exception(str(e))
+                raise Exception(error)
     if i == 4:
-        raise Exception(str(e))
+        raise Exception(error)
 
 
 def clear_text_field_and_insert(component, text):

@@ -267,6 +267,8 @@ def check_if_payment_declined(driver):
     error_log_status = check_if_component_is_visible(driver, payment_declined_text_xpath, 10)
     if not error_log_status:
         raise Exception("Payment Declined error didn't appear!")
+    else:
+        print("Payment has been declined, test Passed.")
 
 
 def set_payment_information(driver):
