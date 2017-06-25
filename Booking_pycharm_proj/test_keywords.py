@@ -3,6 +3,13 @@ from test_element_locators import *
 from selenium.webdriver.support.select import Select
 
 
+def check_if_cookie_popup_exist(driver):
+    cookie_popup_status = check_if_component_is_visible(driver,cookie_popup_xpaht,10)
+    if cookie_popup_status:
+        closing_cookie_popup_button_component = get_element_by_xpath(driver,closing_cookie_popup_button_xpath)
+        closing_cookie_popup_button_component.click()
+
+
 def login_to_main_page(driver, username=login_username, password=login_password):
     '''
     Login to main page using given username and password
@@ -162,8 +169,9 @@ def set_booking_information(driver):
     wait_until_element_is_clicable(driver, continue_booking_button_xpath)
     click_on_component(driver, continue_booking_button_xpath)
 
-    wait_until_element_is_clicable(driver, checkout_booking_button_xpath)
-    click_on_component(driver, checkout_booking_button_xpath)
+    check_if_component_is_visible(driver,checkout_booking_button_xpath)
+    if check_if_component_is_visible:
+        click_on_component(driver, checkout_booking_button_xpath)
 
     seat_prompt_popup_status = check_if_component_is_visible(driver, seat_prompt_popup_dialog_xpath)
     if seat_prompt_popup_status:
@@ -221,7 +229,7 @@ def set_credit_card_information(driver, card_number=user_credit_card_number, car
     clear_text_field_and_insert(user_credit_card_number_text_field_component, card_number)
 
     user_credit_card_type_dropdown_component = get_element_by_name(driver, user_credit_card_type_drop_down_name)
-    Select(user_credit_card_type_dropdown_component).select_by_index(2)
+    Select(user_credit_card_type_dropdown_component).select_by_visible_text(user_credit_card_type)
 
     user_credit_card_month_expiry_dropdown_component = get_element_by_name(driver, user_credit_card_month_expiry_name)
     Select(user_credit_card_month_expiry_dropdown_component).select_by_visible_text(month_expiry)

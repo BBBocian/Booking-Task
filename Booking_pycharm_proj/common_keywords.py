@@ -104,6 +104,7 @@ def click_on_component(driver, component_xpath):
     :param component_xpath:
     :return:
     '''
+    time.sleep(3)
     component = get_element_by_xpath(driver, component_xpath)
     error_message = 'is not clickable at point'
     for i in range(5):

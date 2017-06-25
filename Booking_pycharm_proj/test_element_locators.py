@@ -1,3 +1,6 @@
+cookie_popup_xpaht = "//*[@class='cookie-popup']"
+closing_cookie_popup_button_xpath = "//*[@class='close-icon']"
+
 # login dialog locators
 login_link_xpath = "//*[@id='myryanair-auth-login']//a"
 email_address_text_field_xpath = "//*[@class='signup-modal']//*[@name='emailAddress']"
