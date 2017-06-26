@@ -1,4 +1,21 @@
-# Booking-Task
+
+
+UPDATE: 26.06.2017
+#Pycharm BDD version
+
+Added BDD version witten in behave. 
+
+Prerequisites:
+1. Python installed
+2. Behave installed
+3. Selenium installed
+4. data folder from Booking_BDD\Booking_Test\data added to PATH.
+
+To run TC open command line and go to directory where feature file exist. In this project - Booking_BDD\Booking_Test\payment_declined.feature - then execute: "behave payment_declined.feature"
+
+
+UPDATE: 25.06.2017
+# Pycharm - pure selenium version 
 Draft version created in selenium webdriver + python. Selenium + python has been choosen because this is the best start to improve TC in BDD way. Test in BDD has been created but not in the form I would like to present. It can be delivered in days - if needed.
 
 Test information: 
