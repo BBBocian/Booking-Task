@@ -6,10 +6,10 @@ Test information:
 The purpose of TC is check if trying to book tickets with incorrect credit card information will return
      payment declined error.
      
-     0. check_if_cookie_popup_exist() - check if cookies popup exist
+     0. login_to_main_page() - Run browser, open main page and maximize browser
      
-     1. login_to_main_page() - Run browser, open main page and maximize browser
-     
+	 1. check_if_cookie_popup_exist() - check if cookies popup exist
+	 
      2. set_flight_information() - Login to main page using given user name and password
      
      3. set_booking_information() - Set all necessary information about flight - airports, tickets, date
