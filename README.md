@@ -1,7 +1,8 @@
-
-
+#Booking Task 
+  
 UPDATE: 26.06.2017
-#Pycharm BDD version
+
+Pycharm BDD version
 
 Added BDD version witten in behave. 
 
@@ -13,9 +14,10 @@ Prerequisites:
 
 To run TC open command line and go to directory where feature file exist. In this project - Booking_BDD\Booking_Test\payment_declined.feature - then execute: "behave payment_declined.feature"
 
+Pycharm - pure selenium version
 
 UPDATE: 25.06.2017
-# Pycharm - pure selenium version 
+
 Draft version created in selenium webdriver + python. Selenium + python has been choosen because this is the best start to improve TC in BDD way. Test in BDD has been created but not in the form I would like to present. It can be delivered in days - if needed.
 
 Test information: 
@@ -25,7 +27,7 @@ The purpose of TC is check if trying to book tickets with incorrect credit card 
      
      0. login_to_main_page() - Run browser, open main page and maximize browser
      
-	 1. check_if_cookie_popup_exist() - check if cookies popup exist
+     1. check_if_cookie_popup_exist() - check if cookies popup exist
 	 
      2. set_flight_information() - Login to main page using given user name and password
      
