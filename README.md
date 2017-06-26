@@ -1,8 +1,8 @@
-#Booking Task 
+# Booking Task 
   
 UPDATE: 26.06.2017
 
-Pycharm BDD version
+## Pycharm BDD version
 
 Added BDD version witten in behave. 
 
@@ -14,7 +14,7 @@ Prerequisites:
 
 To run TC open command line and go to directory where feature file exist. In this project - Booking_BDD\Booking_Test\payment_declined.feature - then execute: "behave payment_declined.feature"
 
-Pycharm - pure selenium version
+## Pycharm - pure selenium version
 
 UPDATE: 25.06.2017
 
@@ -43,6 +43,8 @@ Use payment_declined_test.py to run project.
      
 Pycharm project can be used as well as run python file from Separated_files folder. Go to Separated_files direcotry and execute python payment_declined_test.py 
 If gecodriver or chrome dirver are missing, add Separated_files dir to your PATH.
+
+## Additional information
 
 Tested on Firefox/Chrome.
 
