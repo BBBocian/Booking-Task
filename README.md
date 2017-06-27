@@ -11,6 +11,7 @@ Prerequisites:
 2. Behave installed
 3. Selenium installed
 4. data folder from Booking_BDD\Booking_Test\data added to PATH.
+4. chromedriver/gecodriver/other driver added to PATH
 
 To run TC open command line and go to directory where feature file exist. In this project - Booking_BDD\Booking_Test\payment_declined.feature - then execute: "behave payment_declined.feature"
 
